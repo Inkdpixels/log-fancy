@@ -30,14 +30,27 @@ logger.error('dis is broke m8');
 logger.fatal('shit went wrong D:');
 ```
 
+Now execute the script:
 ```sh
+# Prints all messages
 DEBUG='*' node logger.js
+
+# Prints only warnings
+DEBUG=*WARN* node logger.js
+
+# Prints only messages in your namespace
+DEBUG=*myNamespace* node logger.js
 ```
 
 ## API
-The logger API consists of 8 methods, namely `fatal`, `error`, `success`, `warn`, `info`, `debug` and `log`. All methods act like the native console API and take as many arguments as you like.
+The logger API consists of 8 methods, namely `fatal`, `error`, `success`, `warn`, `info`, `debug` and `log`.
 
-The `fatal` method also exits the process with code `1` which identifies the Node process as crashed.
+The `fatal` method is the only one with divergent behavior:
+* It traces the log up to the source file which triggered it which helps to debug the exception if necessary.
+* It will always be rendered and does not use the `DEBUG` environment variable / the `debug` module since it doesn't make sense to not to print fatal errors at any time.
+* It exits the process with code `1` which identifies the Node process as crashed.
+
+All methods act like the native console API and take as many arguments as you like.
 
 ## Code style
 Please make sure that you adhere to the code style which is based upon [xo](https://github.com/sindresorhus/eslint-config-xo).

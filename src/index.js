@@ -32,7 +32,8 @@ function createLogger(namespace) {
 
 	return {
 		fatal(...args) {
-			log('fatal', ...args);
+			console.log(' ', colorsByType.fatal(`${iconsByType.fatal} FATAL::${namespace}:`), ...args);
+			console.trace(...args);
 
 			try {
 				process.exit(1);
