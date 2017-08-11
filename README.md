@@ -53,8 +53,8 @@ The `fatal` method is the only one with divergent behavior:
 All methods act like the native console API and take as many arguments as you like.
 
 ## Roadmap / Features to develop
-- [ ] Add adapters / plugins, e.g. a plugin which forwards all messages to the `fs` or some logging service.
-- [ ] Add configuration possible via a `.fancylogrc` which will be resolved from the root folder of the running process.
+- [ ] Add adapters / plugins, e.g. a plugin which forwards all messages to the `fs` or some logging service. #1
+- [ ] Add configuration possible via a `.fancylogrc` which will be resolved from the root folder of the running process. #2
 
 ## Code style
 Please make sure that you adhere to the code style which is based upon [xo](https://github.com/sindresorhus/eslint-config-xo).
