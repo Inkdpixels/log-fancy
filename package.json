@@ -1,0 +1,72 @@
+{
+  "name": "log-fancy",
+  "version": "0.1.0",
+  "description": "Logging in both Node and the browser the fancy way",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm run lint && npm run jest:coverage",
+    "lint": "eslint src",
+    "jest": "jest",
+    "jest:watch": "npm run jest -- --watch",
+    "jest:coverage": "npm run jest -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inkdpixels/log-fancy.git"
+  },
+  "engines": {
+    "node": ">=8.2.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    },
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)spec.js"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
+  },
+  "keywords": [
+    "log",
+    "fancy",
+    "logger",
+    "logging",
+    "color",
+    "colour",
+    "coloured",
+    "debug"
+  ],
+  "author": "Tyll Weiß",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Inkdpixels/log-fancy/issues"
+  },
+  "homepage": "https://github.com/Inkdpixels/log-fancy#readme",
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-xo": "^0.18.2",
+    "jest": "^20.0.4",
+    "sinon": "^3.2.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "debug": "^3.0.0",
+    "log-symbols": "^2.0.0",
+    "supports-color": "^4.2.1"
+  }
+}
