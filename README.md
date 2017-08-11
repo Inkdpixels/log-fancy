@@ -5,7 +5,7 @@
 [![Dependency Status](https://david-dm.org/Inkdpixels/log-fancy.svg)](https://david-dm.org/Inkdpixels/log-fancy)
 [![devDependency Status](https://david-dm.org/Inkdpixels/log-fancy/dev-status.svg)](https://david-dm.org/Inkdpixels/log-fancy#info=devDependencies&view=table)
 
-> Logging in both Node and the browser the fancy way using the debug module with an API that provides log levels.
+> Logging in both Node and the browser the fancy way using the [debug](https://github.com/visionmedia/debug) module with an API that provides log levels.
 
 ![output](https://user-images.githubusercontent.com/1557092/29221099-c9c672b4-7ebd-11e7-84ed-f3eba8467bbc.png)
 
