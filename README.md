@@ -55,6 +55,10 @@ All methods act like the native console API and take as many arguments as you li
 ## Browser API
 The logger API in the browser is aligned to the Node API, but only uses the `console` API to save some bytes down the wire.
 
+## Roadmap / Features to develop
+- [ ] Add adapters / plugins, e.g. a plugin which forwards all messages to the `fs` or some logging service. #1
+- [ ] Make the configuration possible via a `.fancylogrc` which will be resolved from the root folder of the running process. #2
+
 ## Code style
 Please make sure that you adhere to the code style which is based upon [xo](https://github.com/sindresorhus/eslint-config-xo).
 
