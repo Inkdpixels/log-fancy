@@ -1,6 +1,6 @@
 const debug = require('debug');
 const chalk = require('chalk');
-const {iconsByType} = require('./config.js');
+const iconsByType = require('./iconsByType.js');
 
 const colorsByType = {
 	fatal: chalk.red.underline,

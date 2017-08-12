@@ -1,6 +1,6 @@
 const logSymbols = require('log-symbols');
 
-const iconsByType = {
+module.exports = {
 	fatal: logSymbols.error,
 	error: logSymbols.error,
 	success: logSymbols.success,
@@ -8,8 +8,4 @@ const iconsByType = {
 	info: logSymbols.info,
 	debug: '•',
 	default: ' '
-};
-
-module.exports = {
-	iconsByType
 };
