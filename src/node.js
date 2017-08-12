@@ -1,6 +1,6 @@
-const logSymbols = require('log-symbols');
 const debug = require('debug');
 const chalk = require('chalk');
+const {iconsByType} = require('./config.js');
 
 const colorsByType = {
 	fatal: chalk.red.underline,
@@ -9,15 +9,6 @@ const colorsByType = {
 	warn: chalk.yellow,
 	info: chalk.cyan,
 	default: chalk.white
-};
-const iconsByType = {
-	fatal: logSymbols.error,
-	error: logSymbols.error,
-	success: logSymbols.success,
-	warn: logSymbols.warning,
-	info: logSymbols.info,
-	debug: '•',
-	default: ' '
 };
 
 function logger(namespace, type, ...args) {

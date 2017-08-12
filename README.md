@@ -42,7 +42,7 @@ DEBUG=*WARN* node logger.js
 DEBUG=*myNamespace* node logger.js
 ```
 
-## API
+## Node API
 The logger API consists of 8 methods, namely `fatal`, `error`, `success`, `warn`, `info`, `debug` and `log`.
 
 The `fatal` method is the only one with divergent behavior:
@@ -51,6 +51,9 @@ The `fatal` method is the only one with divergent behavior:
 * It exits the process with code `1` which identifies the Node process as crashed.
 
 All methods act like the native console API and take as many arguments as you like.
+
+## Browser API
+The logger API in the browser is aligned to the Node API, but only uses the `console` API to save some bytes down the wire.
 
 ## Code style
 Please make sure that you adhere to the code style which is based upon [xo](https://github.com/sindresorhus/eslint-config-xo).

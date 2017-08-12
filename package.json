@@ -2,7 +2,8 @@
   "name": "log-fancy",
   "version": "0.0.0-development",
   "description": "Logging in both Node and the browser the fancy way",
-  "main": "src/index.js",
+  "main": "src/node.js",
+  "browser": "src/browser.js",
   "scripts": {
     "test": "npm run lint && npm run jest:coverage",
     "lint": "eslint src",
@@ -56,7 +57,7 @@
     "coloured",
     "debug"
   ],
-  "author": "Tyll Weiß",
+  "author": "Tyll Weiß <inkdpixels@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Inkdpixels/log-fancy/issues"

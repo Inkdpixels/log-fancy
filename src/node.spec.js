@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const createLogger = require('./index.js');
+const createLogger = require('./node.js');
 
 describe('createLogger._logger()', () => {
 	it('should be a function.', () => {
@@ -12,7 +12,7 @@ describe('createLogger._logger()', () => {
 	});
 });
 
-describe('createLogger()', () => {
+describe('createLogger() Node API', () => {
 	it('should be a function.', () => {
 		expect(typeof createLogger).toBe('function');
 	});
