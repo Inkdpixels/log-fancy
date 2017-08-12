@@ -1,7 +1,7 @@
-const {iconsByType} = require('./config.js');
+const config = require('./config.js');
 
 function createLogPrefix(namespace, type) {
-	const icon = iconsByType[type] || iconsByType.default;
+	const icon = config.iconsByType[type] || config.iconsByType.default;
 
 	return icon + type.toUpperCase() + '::' + namespace + ':';
 }
