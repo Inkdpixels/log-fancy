@@ -11,7 +11,7 @@
 
 ## Installation
 ```sh
-npm i log-fancy
+npm i -S log-fancy
 ```
 
 ## Usage
@@ -32,32 +32,30 @@ logger.fatal('shit went wrong D:');
 
 Now execute the script:
 ```sh
-# Prints all messages
+# Prints all messages and all fatal errors
 DEBUG='*' node logger.js
 
-# Prints only warnings
+# Prints only warnings and all fatal errors
 DEBUG=*WARN* node logger.js
 
-# Prints only messages in your namespace
+# Prints only messages in your namespace and all fatal errors
 DEBUG=*myNamespace* node logger.js
 ```
 
 ## Node API
-The logger API consists of 8 methods, namely `fatal`, `error`, `success`, `warn`, `info`, `debug` and `log`.
+The logger API consists of 8 methods, namely `fatal`, `error`, `success`, `warn`, `info`, `debug` and `log`. All methods act like the native console API and take as many arguments as you like.
 
 The `fatal` method is the only one with divergent behavior:
 * It traces the log up to the source file which triggered it which helps to debug the exception if necessary.
 * It will always be rendered and does not use the `DEBUG` environment variable / the `debug` module since it doesn't make sense to not to print fatal errors at any time.
 * It exits the process with code `1` which identifies the Node process as crashed.
 
-All methods act like the native console API and take as many arguments as you like.
-
 ## Browser API
-The logger API in the browser is aligned to the Node API, but only uses the `console` API to save some bytes down the wire.
+The logger API in the browser is aligned to the Node API, but only uses the native `console` object to save some bytes down the wire, so no `debug` fancy colored output here.
 
 ## Roadmap / Features to develop
 - [ ] Add adapters / plugins, e.g. a plugin which forwards all messages to the `fs` or some logging service. #1
-- [ ] Make the configuration possible via a `.fancylogrc` which will be resolved from the root folder of the running process. #2
+- [ ] Make the configuration possible via a `.fancylogrc` which will be resolved from the root folder of the processes package . #2
 
 ## Code style
 Please make sure that you adhere to the code style which is based upon [xo](https://github.com/sindresorhus/eslint-config-xo).
