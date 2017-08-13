@@ -1,17 +1,6 @@
 const sinon = require('sinon');
 const createLogger = require('./node.js');
 
-describe('createLogger._logger()', () => {
-	it('should be a function.', () => {
-		expect(typeof createLogger._logger).toBe('function');
-	});
-
-	it('should not throw an error when called.', () => {
-		createLogger._logger('foo', 'info', 'should log something');
-		createLogger._logger('foo', 'bar', 'should log something');
-	});
-});
-
 describe('createLogger() Node API', () => {
 	it('should be a function.', () => {
 		expect(typeof createLogger).toBe('function');

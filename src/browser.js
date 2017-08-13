@@ -1,10 +1,4 @@
-const iconsByType = require('./iconsByType.js');
-
-function createLogPrefix(namespace, type) {
-	const icon = iconsByType[type] || iconsByType.default;
-
-	return icon + type.toUpperCase() + '::' + namespace + ':';
-}
+const createLogPrefix = require('./_lib/createLogPrefix.js');
 
 function createLogger(namespace) {
 	return {

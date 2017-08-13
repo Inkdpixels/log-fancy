@@ -1,21 +1,10 @@
 const debug = require('debug');
-const chalk = require('chalk');
-const iconsByType = require('./iconsByType.js');
-
-const colorsByType = {
-	fatal: chalk.red.underline,
-	error: chalk.redBright,
-	success: chalk.green,
-	warn: chalk.yellow,
-	info: chalk.cyan,
-	default: chalk.white
-};
+const createColoredLogPrefix = require('./_lib/createColoredLogPrefix.js');
 
 function logger(namespace, type, ...args) {
-	const icon = iconsByType[type] || iconsByType.default;
-	const color = colorsByType[type] || colorsByType.default;
+	const prefix = createColoredLogPrefix(namespace, type);
 
-	return debug(color(`${icon} ${type.toUpperCase()}::${namespace}:`))(...args);
+	return debug(prefix)(...args);
 }
 
 function createLogger(namespace) {
@@ -23,8 +12,11 @@ function createLogger(namespace) {
 
 	return {
 		fatal(...args) {
-			console.log(' ', colorsByType.fatal(`${iconsByType.fatal} FATAL::${namespace}:`), ...args);
-			console.trace(...args);
+			console.error(
+				createColoredLogPrefix(namespace, 'fatal'),
+				...args,
+				new Error().stack
+			);
 
 			try {
 				process.exit(1);
@@ -40,4 +32,3 @@ function createLogger(namespace) {
 }
 
 module.exports = createLogger;
-module.exports._logger = logger;
