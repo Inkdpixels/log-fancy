@@ -12,10 +12,13 @@ function createLogger(namespace) {
 
 	return {
 		fatal(...args) {
+			const stack = new Error().stack.split('\n').splice(2);
+
 			console.error(
 				createColoredLogPrefix(namespace, 'fatal'),
 				...args,
-				new Error().stack
+				'\n',
+				stack.join('\n')
 			);
 
 			try {

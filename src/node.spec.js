@@ -22,32 +22,36 @@ describe('createLogger() Node API', () => {
 
 describe('createLogger().fatal()', () => {
 	let exit;
-	let log;
-	let trace;
+	let error;
 
 	beforeEach(() => {
 		exit = sinon.stub(process, 'exit');
-		trace = sinon.stub(console, 'trace');
-		log = sinon.stub(console, 'log');
+		error = sinon.stub(console, 'error');
 	});
 
 	afterEach(() => {
 		exit.restore();
-		trace.restore();
-		log.restore();
+		error.restore();
 	});
 
 	it('should be a function.', () => {
 		expect(typeof createLogger).toBe('function');
 	});
 
-	it('should call the console.log and console.trace method with the provided arguments.', () => {
-		createLogger('foo').fatal('foo');
+	it('should call the console.error method with the provided arguments and a stack trace.', () => {
+		const expectedTrace = [
+			expect.stringMatching('foo'),
+			expect.stringMatching('bar'),
+			expect.stringMatching('at fooTraceMethod')
+		];
+		function fooTraceMethod() {
+			createLogger('foo').fatal('bar');
+		}
 
-		expect(trace.callCount).toBe(1);
-		expect(trace.args[0]).toContain('foo');
-		expect(log.callCount).toBe(1);
-		expect(log.args[0]).toContain('foo');
+		fooTraceMethod();
+
+		expect(error.callCount).toBe(1);
+		expect(error.args[0]).toEqual(expect.arrayContaining(expectedTrace));
 	});
 
 	it('should call the process.exit method with exit code `1`.', () => {
