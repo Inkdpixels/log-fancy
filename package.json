@@ -70,7 +70,7 @@
     "eslint-config-xo": "^0.18.2",
     "jest": "^20.0.4",
     "sinon": "^3.2.0",
-    "semantic-release": "^6.3.6"
+    "semantic-release": "^7.0.1"
   },
   "dependencies": {
     "chalk": "^2.1.0",
