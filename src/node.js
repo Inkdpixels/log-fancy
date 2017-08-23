@@ -1,17 +1,21 @@
+// @flow
+
+import type {LoggerType} from './types.js';
+
 const debug = require('debug');
 const createColoredLogPrefix = require('./_lib/createColoredLogPrefix.js');
 
-function logger(namespace, type, ...args) {
+function logger(namespace: string, type: string, ...args: Array<any>): void {
 	const prefix = createColoredLogPrefix(namespace, type);
 
 	return debug(prefix)(...args);
 }
 
-function createLogger(namespace) {
+function createLogger(namespace: string): LoggerType {
 	const log = logger.bind(null, namespace);
 
 	return {
-		fatal(...args) {
+		fatal(...args: Array<any>) {
 			const stack = new Error().stack.split('\n').splice(2);
 
 			console.error(

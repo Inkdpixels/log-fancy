@@ -1,3 +1,5 @@
+// @flow
+
 const chalk = require('chalk');
 const createLogPrefix = require('./createLogPrefix.js');
 
@@ -10,7 +12,7 @@ const colorsByType = {
 	default: chalk.white
 };
 
-function createColoredLogPrefix(namespace, type) {
+function createColoredLogPrefix(namespace: string, type: string) {
 	const color = colorsByType[type] || colorsByType.default;
 	const prefix = createLogPrefix(namespace, type);
 

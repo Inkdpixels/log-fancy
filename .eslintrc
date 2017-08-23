@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": "xo/esnext",
   "env": {
     "node": true,

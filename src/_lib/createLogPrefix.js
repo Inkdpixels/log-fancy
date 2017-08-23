@@ -1,3 +1,5 @@
+// @flow
+
 const logSymbols = require('log-symbols');
 
 const iconsByType = {
@@ -10,7 +12,7 @@ const iconsByType = {
 	default: ' '
 };
 
-function createLogPrefix(namespace, type) {
+function createLogPrefix(namespace: string, type: string) {
 	const icon = iconsByType[type] || iconsByType.default;
 
 	return icon + type.toUpperCase() + '::' + namespace + ':';

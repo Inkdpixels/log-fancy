@@ -1,6 +1,10 @@
+// @flow
+
+import type {LoggerType} from './types.js';
+
 const createLogPrefix = require('./_lib/createLogPrefix.js');
 
-function createLogger(namespace) {
+function createLogger(namespace: string): LoggerType {
 	return {
 		fatal: console.error.bind(null, createLogPrefix(namespace, 'fatal')),
 		error: console.error.bind(null, createLogPrefix(namespace, 'error')),

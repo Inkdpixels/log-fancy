@@ -2,14 +2,18 @@
   "name": "log-fancy",
   "version": "0.0.0-development",
   "description": "Logging in both Node and the browser the fancy way",
-  "main": "src/node.js",
-  "browser": "src/browser.js",
+  "main": "lib/node.js",
+  "browser": "lib/browser.js",
   "scripts": {
     "test": "npm run lint && npm run jest:coverage",
     "lint": "eslint src",
     "jest": "jest",
     "jest:watch": "npm run jest -- --watch",
     "jest:coverage": "npm run jest -- --coverage",
+    "flow": "flow",
+    "flow-install-annotations": "flow-typed install && flow-scripts stub",
+    "build": "babel src --out-dir lib --ignore *.spec.js",
+    "postbuild": "flow-copy-source src lib",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -66,11 +70,18 @@
   "devDependencies": {
     "@inkdpixels/commit-analyzer": "^1.0.0",
     "@inkdpixels/release-notes-generator": "^1.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "eslint": "^4.4.1",
     "eslint-config-xo": "^0.18.2",
+    "flow-bin": "^0.53.1",
+    "flow-copy-source": "^1.2.1",
+    "flow-scripts": "^0.3.0",
+    "flow-typed": "^2.1.5",
     "jest": "^20.0.4",
-    "sinon": "^3.2.0",
-    "semantic-release": "^7.0.1"
+    "semantic-release": "^7.0.1",
+    "sinon": "^3.2.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
