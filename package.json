@@ -5,7 +5,7 @@
   "main": "lib/node.js",
   "browser": "lib/browser.js",
   "scripts": {
-    "test": "npm run lint && npm run jest:coverage",
+    "test": "npm run lint && npm run flow && npm run jest:coverage",
     "lint": "eslint src",
     "jest": "jest",
     "jest:watch": "npm run jest -- --watch",
