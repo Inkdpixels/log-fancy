@@ -15,7 +15,7 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore *.spec.js",
     "postbuild": "flow gen-flow-files src/ --out-dir lib",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
