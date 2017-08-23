@@ -3,7 +3,9 @@
 const chalk = require('chalk');
 const createLogPrefix = require('./createLogPrefix.js');
 
-const colorsByType = {
+const colorsByType: {
+	[string]: (...args: Array<any>) => string
+} = {
 	fatal: chalk.red.underline,
 	error: chalk.redBright,
 	success: chalk.green,

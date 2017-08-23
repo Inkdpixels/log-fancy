@@ -2,7 +2,7 @@
 
 const logSymbols = require('log-symbols');
 
-const iconsByType = {
+const iconsByType: {[string]: string} = {
 	fatal: logSymbols.error,
 	error: logSymbols.error,
 	success: logSymbols.success,
@@ -12,7 +12,7 @@ const iconsByType = {
 	default: ' '
 };
 
-function createLogPrefix(namespace: string, type: string) {
+function createLogPrefix(namespace: string, type: string): string {
 	const icon = iconsByType[type] || iconsByType.default;
 
 	return icon + type.toUpperCase() + '::' + namespace + ':';
