@@ -3,6 +3,7 @@
 import type {LoggerType} from './types.js';
 
 const debug = require('debug');
+const path = require('path');
 const createColoredLogPrefix = require('./_lib/createColoredLogPrefix.js');
 
 function logger(namespace: string, type: string, ...args: Array<any>): void {
@@ -11,7 +12,19 @@ function logger(namespace: string, type: string, ...args: Array<any>): void {
 	return debug(prefix)(...args);
 }
 
-function createLogger(namespace: string): LoggerType {
+function resolvePkgJsonName(): string {
+	const pkgJsonPath = path.resolve('package.json');
+	const pkg: {name?: string} = require(pkgJsonPath);
+
+	if (!pkg.name) {
+		throw new Error(`No "name" property found in "${pkgJsonPath}", either set a name or provide a namespace to the createLogger() function.`);
+	}
+
+	return pkg.name;
+}
+
+function createLogger(arg?: string): LoggerType {
+	const namespace = arg || resolvePkgJsonName();
 	const log = logger.bind(null, namespace);
 	const api = {
 		enforceLogging() {
