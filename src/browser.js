@@ -5,8 +5,8 @@ import type {LoggerType} from './types.js';
 const createLogPrefix = require('./_lib/createLogPrefix.js');
 
 function createLogger(namespace: string): LoggerType {
-	return {
-		enforceLogging: () => {},
+	const api = {
+		enforceLogging: () => api,
 		fatal: console.error.bind(null, createLogPrefix(namespace, 'fatal')),
 		error: console.error.bind(null, createLogPrefix(namespace, 'error')),
 		success: console.log.bind(null, createLogPrefix(namespace, 'fatal')),
@@ -15,6 +15,8 @@ function createLogger(namespace: string): LoggerType {
 		debug: (console.debug || console.log).bind(null, createLogPrefix(namespace, 'debug')),
 		log: console.log.bind(null, createLogPrefix(namespace, 'log'))
 	};
+
+	return api;
 }
 
 module.exports = createLogger;

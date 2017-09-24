@@ -13,10 +13,11 @@ function logger(namespace: string, type: string, ...args: Array<any>): void {
 
 function createLogger(namespace: string): LoggerType {
 	const log = logger.bind(null, namespace);
-
-	return {
+	const api = {
 		enforceLogging() {
 			debug.enable(`*${namespace}*`);
+
+			return api;
 		},
 		fatal(...args: Array<any>) {
 			const stack = new Error().stack.split('\n').splice(2);
@@ -39,6 +40,8 @@ function createLogger(namespace: string): LoggerType {
 		debug: log.bind(null, 'debug'),
 		log: log.bind(null, 'log')
 	};
+
+	return api;
 }
 
 module.exports = createLogger;
