@@ -2,6 +2,7 @@
 
 export type LoggerFnType = (...args: Array<any>) => void;
 export type LoggerType = {
+	enforceLogging: () => void,
 	fatal: LoggerFnType,
 	error: LoggerFnType,
 	success: LoggerFnType,

@@ -9,6 +9,7 @@ describe('createLogger() Browser API', () => {
 		const logger = createLogger('foo');
 
 		expect(typeof logger).toBe('object');
+		expect(typeof logger.enforceLogging).toBe('function');
 		expect(typeof logger.info).toBe('function');
 		expect(typeof logger.warn).toBe('function');
 		expect(typeof logger.success).toBe('function');

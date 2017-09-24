@@ -15,6 +15,9 @@ function createLogger(namespace: string): LoggerType {
 	const log = logger.bind(null, namespace);
 
 	return {
+		enforceLogging() {
+			debug.enable(`*${namespace}*`);
+		},
 		fatal(...args: Array<any>) {
 			const stack = new Error().stack.split('\n').splice(2);
 

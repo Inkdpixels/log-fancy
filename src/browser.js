@@ -6,6 +6,7 @@ const createLogPrefix = require('./_lib/createLogPrefix.js');
 
 function createLogger(namespace: string): LoggerType {
 	return {
+		enforceLogging: () => {},
 		fatal: console.error.bind(null, createLogPrefix(namespace, 'fatal')),
 		error: console.error.bind(null, createLogPrefix(namespace, 'error')),
 		success: console.log.bind(null, createLogPrefix(namespace, 'fatal')),

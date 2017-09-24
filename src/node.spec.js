@@ -10,6 +10,7 @@ describe('createLogger() Node API', () => {
 		const logger = createLogger('foo');
 
 		expect(typeof logger).toBe('object');
+		expect(typeof logger.enforceLogging).toBe('function');
 		expect(typeof logger.info).toBe('function');
 		expect(typeof logger.warn).toBe('function');
 		expect(typeof logger.success).toBe('function');
@@ -59,5 +60,21 @@ describe('createLogger().fatal()', () => {
 
 		expect(exit.callCount).toBe(1);
 		expect(exit.args[0]).toEqual([1]);
+	});
+});
+
+describe('createLogger().enforceLogging()', () => {
+	it('should not throw exception errors when called.', () => {
+		const logger = createLogger('foo');
+
+		expect(() => logger.enforceLogging()).not.toThrow();
+	});
+});
+
+describe('createLogger().error()', () => {
+	it('should not throw exception errors when called.', () => {
+		const logger = createLogger('foo');
+
+		expect(() => logger.error('expect this not to throw exception errors which will stop the application from running...')).not.toThrow();
 	});
 });
