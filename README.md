@@ -53,6 +53,10 @@ The `fatal` method is the only one with divergent behavior:
 ## Browser API
 The logger API in the browser is aligned to the Node API, but only uses the native `console` object to save some bytes down the wire, so no `debug` fancy colored output here.
 
+## Advanved features and methods
+#### `.enforceLogging()`
+Enforces the log output to be shown. Useful if you cannot set the `DEBUG` env variable yourself.
+
 ## Roadmap / Features to develop
 - [ ] Add adapters / plugins, e.g. a plugin which forwards all messages to the `fs` or some logging service. #1
 - [ ] Make the configuration possible via a `.fancylogrc` which will be resolved from the root folder of the processes package . #2
