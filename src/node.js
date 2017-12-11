@@ -14,10 +14,16 @@ function logger(namespace: string, type: string, ...args: Array<any>): void {
 
 function resolvePkgJsonName(): string {
 	const pkgJsonPath = path.resolve('package.json');
+	const err = new Error(`No "name" property found in "${pkgJsonPath}", either set a name or provide a namespace to the createLogger() function.`);
+
+	if (!pkgJsonPath) {
+		throw err;
+	}
+
 	const pkg: {name: string} = require(pkgJsonPath);
 
 	if (!pkg.name) {
-		throw new Error(`No "name" property found in "${pkgJsonPath}", either set a name or provide a namespace to the createLogger() function.`);
+		throw err;
 	}
 
 	return pkg.name;
