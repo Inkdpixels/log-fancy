@@ -5,14 +5,9 @@ cache:
     - node_modules
 notifications:
   email: false
-before_install:
-  - npm install -g greenkeeper-lockfile@1
 before_script:
   - npm prune
-  - greenkeeper-lockfile-update
   - npm run flow-install-annotations
-after_script:
-  - greenkeeper-lockfile-upload
 after_success:
   - npm run semantic-release
 branches:

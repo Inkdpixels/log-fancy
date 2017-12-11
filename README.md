@@ -1,6 +1,6 @@
 # log-fancy
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/Inkdpixels/log-fancy.svg)](https://greenkeeper.io/)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovateapp.com/)
 [![Build Status](https://travis-ci.org/Inkdpixels/log-fancy.svg?branch=master)](https://travis-ci.org/Inkdpixels/log-fancy)
 [![Dependency Status](https://david-dm.org/Inkdpixels/log-fancy.svg)](https://david-dm.org/Inkdpixels/log-fancy)
 [![devDependency Status](https://david-dm.org/Inkdpixels/log-fancy/dev-status.svg)](https://david-dm.org/Inkdpixels/log-fancy#info=devDependencies&view=table)
