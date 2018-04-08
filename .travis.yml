@@ -1,15 +1,14 @@
-sudo: false
 language: node_js
 cache:
   directories:
     - node_modules
 notifications:
   email: false
-before_script:
-  - npm prune
+before_script:	+node_js:
+  - npm prune	+  - '9'
   - npm run flow-install-annotations
 after_success:
-  - npm run semantic-release
+  - npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

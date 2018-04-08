@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Inkdpixels/log-fancy.git"
+    "url": "https://github.com/bjornreppen/log-fancy.git"
   },
   "engines": {
     "node": ">=8.2.0"
@@ -59,9 +59,9 @@
   "author": "Tyll Weiß <inkdpixels@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Inkdpixels/log-fancy/issues"
+    "url": "https://github.com/bjornreppen/log-fancy/issues"
   },
-  "homepage": "https://github.com/Inkdpixels/log-fancy#readme",
+  "homepage": "https://github.com/bjornreppen/log-fancy#readme",
   "devDependencies": {
     "@inkdpixels/commit-analyzer": "1.0.1",
     "@inkdpixels/release-notes-generator": "1.0.1",
@@ -75,8 +75,9 @@
     "flow-typed": "2.4.0",
     "jest": "21.2.1",
     "rimraf": "2.6.2",
-    "semantic-release": "^8.0.0",
-    "sinon": "4.5.0"
+    "semantic-release": "^15.1.5",
+    "sinon": "4.5.0",
+    "travis-deploy-once": "^4.4.1"
   },
   "dependencies": {
     "chalk": "^2.1.0",
