@@ -4,8 +4,8 @@ cache:
     - node_modules
 notifications:
   email: false
-before_script:	+node_js:
-  - npm prune	+  - '9'
+before_script:
+  - npm prune
   - npm run flow-install-annotations
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
