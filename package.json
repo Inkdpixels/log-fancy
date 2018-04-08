@@ -1,7 +1,7 @@
 {
   "name": "log-less-fancy",
   "version": "0.0.0-development",
-  "description": "Logging in both Node and the browser the fancy way",
+  "description": "Logging in both Node and the browser the less fancy way",
   "main": "lib/node.js",
   "browser": "lib/browser.js",
   "scripts": {

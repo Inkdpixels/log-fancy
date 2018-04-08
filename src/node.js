@@ -6,10 +6,13 @@ const debug = require('debug');
 const path = require('path');
 const createColoredLogPrefix = require('./_lib/createColoredLogPrefix.js');
 
-function logger(namespace: string, type: string, ...args: Array<any>): void {
+const prefix2debug = {};
+function logger(namespace, type, ...args) {
 	const prefix = createColoredLogPrefix(namespace, type);
-
-	return debug(prefix)(...args);
+	if (!prefix2debug[prefix]) {
+		prefix2debug[prefix] = debug(prefix);
+	}
+	return prefix2debug[prefix](...args);
 }
 
 function resolveScriptName(): string {
