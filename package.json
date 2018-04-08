@@ -1,7 +1,7 @@
 {
-  "name": "log-fancy",
+  "name": "log-less-fancy",
   "version": "0.0.0-development",
-  "description": "Logging in both Node and the browser the fancy way",
+  "description": "Logging in both Node and the browser the less fancy way",
   "main": "lib/node.js",
   "browser": "lib/browser.js",
   "scripts": {
@@ -16,11 +16,12 @@
     "build": "babel src --out-dir lib --ignore *.spec.js",
     "postbuild": "flow-copy-source --ignore *.spec.js src/ lib",
     "prepublishOnly": "npm run build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Inkdpixels/log-fancy.git"
+    "url": "https://github.com/bjornreppen/log-fancy.git"
   },
   "engines": {
     "node": ">=8.2.0"
@@ -66,12 +67,10 @@
   "author": "Tyll Weiß <inkdpixels@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Inkdpixels/log-fancy/issues"
+    "url": "https://github.com/bjornreppen/log-fancy/issues"
   },
-  "homepage": "https://github.com/Inkdpixels/log-fancy#readme",
+  "homepage": "https://github.com/bjornreppen/log-fancy#readme",
   "devDependencies": {
-    "@inkdpixels/commit-analyzer": "1.0.1",
-    "@inkdpixels/release-notes-generator": "1.0.1",
     "babel-cli": "6.26.0",
     "babel-eslint": "8.2.2",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
@@ -80,10 +79,12 @@
     "flow-bin": "0.69.0",
     "flow-copy-source": "1.3.0",
     "flow-typed": "2.4.0",
-    "jest": "21.2.1",
+    "jest": "20.0.4",
+    "jest-cli": "20.0.4",
     "rimraf": "2.6.2",
-    "semantic-release": "^8.0.0",
-    "sinon": "4.5.0"
+    "semantic-release": "^15.1.5",
+    "sinon": "4.5.0",
+    "travis-deploy-once": "^4.4.1"
   },
   "dependencies": {
     "chalk": "^2.1.0",
