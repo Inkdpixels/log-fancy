@@ -8,7 +8,7 @@ before_script:
   - npm prune
   - npm run flow-install-annotations
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
