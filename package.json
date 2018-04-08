@@ -27,7 +27,9 @@
     "node": ">=8.2.0"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 70,
@@ -36,11 +38,17 @@
         "statements": 70
       }
     },
-    "testMatch": ["<rootDir>/src/**/?(*.)spec.js"],
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)spec.js"
+    ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
-    "moduleFileExtensions": ["js"]
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
   },
   "release": {
     "analyzeCommits": "@inkdpixels/commit-analyzer",
