@@ -16,8 +16,8 @@
     "build": "babel src --out-dir lib --ignore *.spec.js",
     "postbuild": "flow-copy-source --ignore *.spec.js src/ lib",
     "prepublishOnly": "npm run build",
-    "semantic-release":
-      "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,9 @@
     "node": ">=8.2.0"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 70,
@@ -36,11 +38,17 @@
         "statements": 70
       }
     },
-    "testMatch": ["<rootDir>/src/**/?(*.)spec.js"],
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)spec.js"
+    ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
-    "moduleFileExtensions": ["js"]
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
   },
   "release": {
     "analyzeCommits": "@inkdpixels/commit-analyzer",
