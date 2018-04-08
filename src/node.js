@@ -12,25 +12,12 @@ function logger(namespace: string, type: string, ...args: Array<any>): void {
 	return debug(prefix)(...args);
 }
 
-function resolvePkgJsonName(): string {
-	const pkgJsonPath = path.resolve('package.json');
-	const err = new Error(`No "name" property found in "${pkgJsonPath}", either set a name or provide a namespace to the createLogger() function.`);
-
-	if (!pkgJsonPath) {
-		throw err;
-	}
-
-	const pkg: {name: string} = require(pkgJsonPath);
-
-	if (!pkg.name) {
-		throw err;
-	}
-
-	return pkg.name;
+function resolveScriptName(): string {
+	return path.basename(process.argv[1], '.js');
 }
 
 function createLogger(arg?: string): LoggerType {
-	const namespace = arg || resolvePkgJsonName();
+	const namespace = arg || resolveScriptName();
 	const log = logger.bind(null, namespace);
 	const api = {
 		enforceLogging() {
