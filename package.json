@@ -87,7 +87,7 @@
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "debug": "^3.0.0",
+    "debug": "^4.0.0",
     "log-symbols": "^2.0.0",
     "supports-color": "^5.0.0"
   }
